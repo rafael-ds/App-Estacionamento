@@ -1,0 +1,94 @@
+/*Header*/
+.cabecalho {
+    background-color: #60b4ec;
+    height: 80px;
+    
+}
+
+.logo{
+
+    float: left;
+}
+
+.logo img{
+    width: 100px;
+}
+
+.operador{
+
+    float: left;
+    margin-left: 50px;
+}
+
+.menu{
+    float: right;
+    
+}
+
+.dropBTN{
+    cursor: pointer;
+
+    font-size: 2em;
+    color: #EBB000;
+}
+
+.drop{
+    position: relative;
+    display: inline-block;
+}
+
+.dropContener{
+    display: none;
+    position: absolute;
+
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropContener a{
+    display: block;
+    color: black;
+    text-decoration: none;
+
+    padding: 10px;
+    text-align: center;
+}
+
+.dropContener a:hover{
+    background-color: #f1f1f1;
+
+    text-decoration: none;
+}
+
+.drop:hover .dropContener{
+    display: block;
+}
+
+  
+.drop:hover .dropBTN {
+background-color: #3e8e41;
+}
+
+
+/*Fim do header*/
+
+
+/*Roda pé*/
+footer{
+    clear: both;
+}
+
+
+
+/*Dispositivos large (desktops com 992px ou mais)*/
+@media (max-width: 767.98px) { 
+    
+
+     .dropContener{
+       margin-left: -150px;
+    }
+
+ }
+

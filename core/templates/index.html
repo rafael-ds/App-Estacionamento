@@ -1,0 +1,67 @@
+{% load static %}
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+
+        {% bootstrap_css %}
+        <script src="https://kit.fontawesome.com/65d158f4c4.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    </head>
+
+    <body>
+        
+        <section class="escopo">
+
+            <center class="mt-5">
+
+                <div class="container conteudo">
+                    <img src="{% static 'imagem/logo.png' %}" alt="">
+                    <h1 class="text-center">EstacionaCar</h1>
+                    <h6>O lugar mais seguro para seu veículo</h6>
+                    
+
+                    <form action="#" method="post" class="mt-5 shadow p-3 mb-5 bg-light rounded">
+                        {% csrf_token %}
+                        <span class="login" style="color: #EBB002;"><i class="fas fa-sign-in-alt"></i></span>
+                        <h4 style="color: darkcyan;">Login</h4>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1"></label>
+                            <input type="text" name="operador" class="form-control" id="exampleFormControlInput1" placeholder="Operador" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1"></label>
+                            <input type="password" name="senha" class="form-control" id="exampleFormControlInput1" placeholder="Senha" required>
+                        </div>
+
+                        <div>
+                            <button  type="submit" class="p-2">Entrar</button>
+                        </div>
+
+                        <div class="p-3">
+                            <hr>
+                            <a href="#">Acessar área administriva</a>
+                        </div>
+                    </form>
+
+                    <div>
+                        <hr>
+                        <a href="https://github.com/rafael-ds">Desenvolvido por RadiDevWeb</a>
+                    </div>
+                </div>
+            </center>
+
+        </section>
+
+    </body>
+
+</html>

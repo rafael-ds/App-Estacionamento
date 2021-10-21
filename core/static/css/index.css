@@ -1,0 +1,52 @@
+form{
+
+    width: 500px;
+}
+
+h1{
+    color: #EBB002;
+    text-align: center;
+    margin-right: 80px;
+}
+
+.conteudo img{
+    /*border: solid red 1px;*/
+    width: 80px;
+    margin-bottom: -80px;
+    margin-left: 250px;
+}
+
+.login {
+
+    font-size: 3em;
+
+}
+
+button{
+    background-color: #4375BC;
+    color:  white;
+    width: 100px;
+
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: #4375bcab;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #EBB002;
+}
+
+
+
+/*Dispositivos médios (tablets com menos de 992px)*/
+@media (max-width: 991.98px) { 
+    form{
+
+        width: 350px;
+    }
+
+ }
