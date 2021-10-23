@@ -2,8 +2,9 @@
 .cabecalho {
     background-color: #60b4ec;
     height: 80px;
-    
+    box-shadow: 1px 0px 6px cadetblue;
 }
+
 
 .logo{
 
@@ -78,8 +79,23 @@ background-color: #3e8e41;
 /*Roda pé*/
 footer{
     clear: both;
+    background-color: #60B4EC;
+    padding: 50px;
+    position: relative;
+
 }
 
+footer a{
+    color: #EBB000;
+    text-decoration: none;
+
+}
+
+footer a:hover{
+    text-decoration: none;
+
+    color: white;
+}
 
 
 /*Dispositivos large (desktops com 992px ou mais)*/
@@ -88,6 +104,10 @@ footer{
 
      .dropContener{
        margin-left: -150px;
+    }
+
+    footer{
+        text-align: center;
     }
 
  }

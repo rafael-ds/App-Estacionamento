@@ -4,23 +4,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+    <!--Head-->
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% block title %}{% endblock %}
-
+        <title>EstacionaCar</title>
+        
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <script src="https://kit.fontawesome.com/65d158f4c4.js" crossorigin="anonymous"></script>
 
         {% bootstrap_css %}
 
     </head>
-
+    <!--Fim Head-->
+    
     <body>        
         
         <!--Seção cabecalho-->
-        <section class="container-fluid cabecalho">
+        <section class="cabecalho">
             <header>
                 <div class="container">
                     <!--Seção Logo-->
@@ -30,7 +32,8 @@
     
                     <!--Seção oerador-->
                     <div class="operador p-2 mt-3">
-                        oprador
+                        <span style="color: #EBB000;">Operador</span>
+                        <p>Operador</p>
                     </div>
     
                     <!--Seção Menu-->
@@ -51,16 +54,27 @@
         <!--Fim Seção cabecalho-->
 
         <!--Seção Conteúdo-->
-        <section>
-            {% block conteudo %}
-            {% endblock %}
-        </section>
+        
+        {% block conteudo %}
+        {% endblock %}
+        
         <!--Fim Seção conteúdo-->
 
         <!--Seção Rodape-->
-        <section>
+        <section class="mt-5">
             <footer>
-                rodape
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            &copy; RadiDevWeb | 2021
+                        </div>
+                        <div class="col-md-4">
+                            <a href="#">
+                                Desenvolvido por Rafael Silva
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </footer>
         </section>
         <!--Fim Seção rodapé-->
