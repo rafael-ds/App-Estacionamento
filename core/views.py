@@ -5,6 +5,6 @@ def index(request):
     return render(request, 'index.html')
 
 
-def entrada(request):
-    return render(request, 'entrada.html')
+def home(request):
+    return render(request, 'home.html')
 
