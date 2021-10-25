@@ -1,3 +1,6 @@
+
+
+
 html, body{
     padding: 0;
     margin: 0;
@@ -11,6 +14,21 @@ html, body{
   
 }
 
+h2{
+    font-family: 'Roboto';
+    color: #343A40;
+}
+
+.controle h2{
+    margin-left: 80px;
+}
+
+.card-body{
+    /*border: solid red 1px;*/
+    padding: 10px;
+    height: 40px;
+}
+
 
 
 /*Dispositivos large (desktops com 992px ou mais)*/
@@ -21,6 +39,10 @@ html, body{
         margin-top: 10px;
 
         width: 300px;
+    }
+
+    .controle h2{
+        margin-left: 0px;
     }
 
 }

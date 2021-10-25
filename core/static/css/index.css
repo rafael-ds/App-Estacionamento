@@ -1,3 +1,9 @@
+/* Fonts */
+
+h1, h2, h3, h4{
+    font-family: 'Roboto';
+}
+
 form{
 
     width: 500px;
@@ -7,6 +13,7 @@ h1{
     color: #EBB002;
     text-align: center;
     margin-right: 80px;
+
 }
 
 .conteudo img{
