@@ -13,12 +13,24 @@
           <h2 class="p-3">Controle</h2>
             <!--BTNS-->
             <div class="row d-flex justify-content-center bnts p-3">
+                <!--BNT registro de entrada-->
                 <div class="col-md-3">
-                    <button type="submit" nome='placaEntrada' class="btn btn-primary p-2">Entrada</button>
+                    <button type="button" name='placaEntrada' class="btn btn-primary p-2">
+                        <a href="{% url 'entrada' %}" rel="noopener noreferrer">
+                            Entrada
+                        </a>
+                    </button>
                 </div>
+
+                <!--BTN registro de saida-->
                 <div class="col-md-3 ">
-                    <button type="submit" name="placaSaida" class="btn btn-primary p-2">Saida</button>
+                    <button type="submit" name="placaSaida" class="btn btn-primary p-2">
+                        <a href="{% url 'saida' %}" rel="noopener noreferrer">
+                            Saida
+                        </a>
+                    </button>
                 </div>
+
             </div>
             <hr>
         </div>
@@ -29,64 +41,7 @@
 <!--Fim BTNS Entra/Saida-->
 
 <!--Seção de controle-->
-<section class="controle">
-    <h2 class="mt-4 p-3">Consultas</h2>
-
-    <div class="container">
-        <div class="row">
-            <div class="input-group mb-3 col-md-6">
-                <input type="text" class="form-control" name="buscarPlaca" placeholder="Informe a placa do veículo" aria-label="Recipient's username" aria-describedby="button-addon2">
-
-                <div class="input-group-append">
-                  <button class="btn btn-outline-primary" type="submit" id="button-addon2">Buscar</button>
-                </div>
-
-              </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                      <div>
-                          <span>Vagas disponiveis: 30</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="lista">
-                      
-                  </div>
-            </div>
-        </div>
-
-        <!--Tabela-->
-        <div class="tabela mt-4">
-            <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Placa</th>
-                    <th scope="col">Modelo</th>
-                    <th scope="col">Entrada</th>
-                    <th scope="col">Tipo: rot|mens</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>at225d5</td>
-                    <td>Fusion</td>
-                    <td>25/out 10:45</td>
-                    <td>rot</td>
-                  </tr>                  
-                </tbody>
-              </table>
-       
-        </div>
-        <!--Fim Tabela-->
-
-    </div>
-
-</section>
+{% include 'controle.html' %}
 <!--Fim Seção de controle-->
 
 {% endblock %}

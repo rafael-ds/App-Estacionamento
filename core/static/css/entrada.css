@@ -1,0 +1,21 @@
+.controle h2{
+    margin-left: 80px;
+}
+
+.card-body{
+    /*border: solid red 1px;*/
+    padding: 10px;
+    height: 40px;
+}
+
+
+
+/*Dispositivos large (desktops com 992px ou mais)*/
+@media (max-width: 767.98px) { 
+
+    .controle h2{
+        margin-left: 0px;
+
+    }
+
+}

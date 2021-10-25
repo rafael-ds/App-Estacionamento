@@ -8,3 +8,11 @@ def index(request):
 def home(request):
     return render(request, 'home.html')
 
+
+def entrada(request):
+    return render(request, 'entrada.html')
+
+
+def saida(request):
+    return render(request, 'saida.html')
+

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block conteudo %}
+
+<section>
+<p></p>
+    <link rel="stylesheet" href="{% static 'css/saida.css' %}">
+
+
+    <div class="container conteudo">
+        <h2 class="p-2">Saída</h2>
+
+        <!--Capo de busca de placa-->
+        <div class="input-group mb-3 mt-3">
+            <input type="text" class="form-control" name="buscarPlaca" placeholder="Informe a placa do veículo" aria-label="Recipient's username" aria-describedby="button-addon2">
+
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary" type="submit" id="button-addon2">Ok</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Tabela-->
+    <div class="tabela mt-4">
+        <h2 class="p-3">Veículo</h2>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Placa</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Hora Entrada</th>
+                <th scope="col">Hora Saída</th>
+                <th scope="col">Valor(R$)</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>at225d5</td>
+                <td>Fusion</td>
+                <td>25/out 10:45</td>
+                <td>25/out 11:30</td>
+                <td>7,00</td>
+              </tr>                  
+            </tbody>
+        </table>
+        <hr>
+        <button class="btn btn-primary mt-2 ml-4">Liberar</button>
+    </div>
+    <!--Fim Tabela-->
+
+</section>
+
+{% endblock %}
