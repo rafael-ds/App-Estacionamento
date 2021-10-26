@@ -40,7 +40,7 @@
                     <!--Seção oerador-->
                     <div class="operador p-2 mt-3">
                         <span style="color: #EBB000;">Operador</span>
-                        <p>Operador</p>
+                    <p>{{user}}</p>
                     </div>
     
                     <!--Seção Menu-->
@@ -48,9 +48,8 @@
                         <div class="drop">
                             <i class="fas fa-cog dropBTN"></i>
                             <div class="dropContener">
-                                <a href="#">Link 1</a>
-                                <a href="#">Link 2</a>
-                                <a href="#">Link 3</a>
+                                <a href="#">Área ADM</a>
+                                <a href="{% url 'saida_user' %}">Sair</a>
                             </div>
                         </div>
                     </div>
@@ -76,7 +75,7 @@
                             &copy; RadiDevWeb | 2021
                         </div>
                         <div class="col-md-4">
-                            <a href="#">
+                            <a href="https://github.com/rafael-ds" target="_blank">
                                 Desenvolvido por Rafael Silva
                             </a>
                         </div>

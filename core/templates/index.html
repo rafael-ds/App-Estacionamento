@@ -23,6 +23,7 @@
         <section class="escopo">
 
             <center class="mt-5">
+                {% bootstrap_messages %}
 
                 <div class="container conteudo">
                     <img src="{% static 'imagem/logo.png' %}" alt="">
@@ -32,6 +33,7 @@
 
                     <form action="#" method="post" class="mt-5 shadow p-3 mb-5 bg-light rounded">
                         {% csrf_token %}
+
                         <span class="login" style="color: #EBB002;"><i class="fas fa-sign-in-alt"></i></span>
                         <h4 style="color: darkcyan;">Login</h4>
 

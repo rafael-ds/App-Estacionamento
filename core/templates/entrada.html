@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 {% load static %}
 
 
@@ -9,45 +10,42 @@
 <!--Fomulario-->
 <section>
     <div class="container formulario">
+        
         <h2 class="p-2 mt-3 mb-3">Entrada</h2>
 
         <form action="" method="post">
+            {% bootstrap_messages %}
+
             {% csrf_token %} 
             
             <!--Placa-->
             <div class="form-group">
                 <label for="exampleFormControlInput1">Placa</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Informe a placa do veículo">
+                <input type="text" name="placa" class="form-control" id="exampleFormControlInput1" placeholder="Informe a placa do veículo">
             </div>
 
             <!--Modelo-->
             <div class="form-group">
                 <label for="exampleFormControlInput1">Modelo</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Informe o modelo do veículo">
+                <input type="text" name="modelo" class="form-control" id="exampleFormControlInput1" placeholder="Informe o modelo do veículo">
             </div>
 
             <!--Tipo de serviço-->
             <div class="p-3 mb-2">
                 <span>Tipo</span>
-                <div class="form-check p-2">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                        Rotativo
-                    </label>
-                </div>
-    
-                <div class="form-check p-2">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                        Mensalista
-                    </label>
-                </div>
+                <div class="input-group mb-3">
+                    <select class="custom-select" id="inputGroupSelect02" name="tipo">
+                      <option selected>Escolher...</option>
+                      <option value="1">Rotativo</option>
+                      <option value="2">Mensalista</option>
+                    </select>                    
+                  </div>
             </div>
 
             <!--Descrição-->
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descrições</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descreva detales relevantes sobre oveiculo. ex:marcas de amassados, arranhões etc."></textarea>
+                <textarea name="desc" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Descreva detales relevantes sobre oveiculo. ex:marcas de amassados, arranhões etc."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary mt-2 mb-2">Liberar</button>
