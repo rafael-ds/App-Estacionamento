@@ -4,7 +4,7 @@ from .models import Controle, Tipo
 
 @admin.register(Controle)
 class BdControleAdmim(admin.ModelAdmin):
-    list_display = ('id', 'placa', 'modelo', 'tipo', 'descricao', 'operador')
+    list_display = ('id', 'placa', 'modelo', 'tipo', 'descricao', 'operador', 'entrada')
 
 
 @admin.register(Tipo)

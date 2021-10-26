@@ -1,5 +1,8 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/controle.css' %}">
+
 <section class="controle">
-    <h2 class="mt-4 p-3">Consultas</h2>
+    <h2 class="mt-4 p-3">Park</h2>
 
     <div class="container">
         <div class="row">
@@ -38,16 +41,17 @@
                     <th scope="col">Tipo: rot | mens</th>
                   </tr>
                 </thead>
-
+                {% for v in veiculo %}
                 <tbody>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>at225d5</td>
-                    <td>Fusion</td>
-                    <td>25/out 10:45</td>
-                    <td>rot</td>
+                    <th scope="row">{{v.id}}</th>
+                    <td>{{v.placa}}</td>
+                    <td>{{v.modelo}}</td>
+                    <td>{{v.entrada|time}}</td>
+                    <td>{{v.tipo}}</td>
                   </tr>                  
                 </tbody>
+                {% endfor %}
               </table>
        
         </div>

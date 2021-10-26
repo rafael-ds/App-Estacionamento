@@ -46,7 +46,14 @@ def saida_user(request):
 # Home
 @login_required(redirect_field_name='index')
 def home(request):
-    return render(request, 'home.html')
+
+    veiculos = Controle.objects.all()
+
+    contexto = {
+        'veiculo': veiculos
+    }
+
+    return render(request, 'home.html', contexto)
 # Fim da Home
 
 
