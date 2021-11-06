@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 {% load static %}
 
 {% block conteudo %}
 
 <section>
-<p></p>
+<p>{{h}}</p>
     <link rel="stylesheet" href="{% static 'css/saida.css' %}">
 
 
@@ -13,17 +14,21 @@
 
         <!--Capo de busca de placa-->
         <div class="input-group mb-3 mt-3">
-            <input type="text" class="form-control" name="buscarPlaca" placeholder="Informe a placa do veículo" aria-label="Recipient's username" aria-describedby="button-addon2">
+
+          <!--Necessario o form para aplicação-->
+          <!--name="buscarPlaca": usado na views como identificação-->
+          <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'saida' %}">
+            <input type="text" class="form-control" name="buscarPlaca" value="{{ request.GET.p }}" placeholder="Informe a placa do veículo" aria-label="Recipient's username" aria-describedby="button-addon2">
 
             <div class="input-group-append">
               <button class="btn btn-outline-primary" type="submit" id="button-addon2">Ok</button>
             </div>
-
+          </form>            
         </div>
     </div>
 
     <!--Tabela-->
-    <div class="tabela mt-4">
+    <!--<div class="tabela mt-4">
         <h2 class="p-3">Veículo</h2>
         <table class="table">
             <thead class="thead-dark">
@@ -31,25 +36,63 @@
                 <th scope="col">Placa</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Hora Entrada</th>
-                <th scope="col">Hora Saída</th>
-                <th scope="col">Valor(R$)</th>
+                
               </tr>
             </thead>
 
+            {% for v in veiculo %}
             <tbody>
               <tr>
-                <td>at225d5</td>
-                <td>Fusion</td>
-                <td>25/out 10:45</td>
-                <td>25/out 11:30</td>
-                <td>7,00</td>
+                <td>{{v.placa}}</td>
+                <td>{{v.modelo}}</td>
+                <td>{{v.entrada|time}}</td>
               </tr>                  
             </tbody>
+            {% endfor %}
         </table>
         <hr>
+
+        
+
         <button class="btn btn-primary mt-2 ml-4">Liberar</button>
-    </div>
+    </div>-->
     <!--Fim Tabela-->
+
+    <center>
+      <div class="card">
+        <div class="card-header">
+          {% for v in veiculo %}
+          <span>Placa: {{v.placa}}</span>
+          
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Modelo: {{v.modelo}}</h5>
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Entrada</th>
+                <th scope="col">Tipo: rot | mes</th>
+                <th scope="col">Saida</th>
+                <th scope="col">Valor(R$)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{v.entrada}}</td>
+                <td>{{v.tipo}}</td>
+                
+                <td>{{horas}}</td>
+                <td>R$ Valor</td>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+          
+          <a href="#" class="btn btn-primary">Liberar</a>
+        </div>
+      </div>
+    </center>
 
 </section>
 

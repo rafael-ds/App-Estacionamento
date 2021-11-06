@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
-from time import sleep
+from datetime import datetime as dt
 
 #Importe que tem como objetivo a necessidade de estar logado
 #para ter acesso a determinada pagina
@@ -80,7 +80,6 @@ def entrada(request):
 
 
         if veiculo:
-            sleep(1)
             return redirect('home')
 
     return render(request, 'entrada.html')
@@ -90,5 +89,24 @@ def entrada(request):
 # Saída
 @login_required(redirect_field_name='index')
 def saida(request):
-    return render(request, 'saida.html')
+
+    # variavel de retorna a placa digitada
+    get_placa = request.GET.get('buscarPlaca')
+    
+    veiculo = Controle.objects.order_by('id').filter(
+        # variavel placa --> Vem do Banco
+        #get_placa --> Vem da busca saida.html
+        placa=get_placa,
+    )
+
+    # Inserindo a hora atual do sistema
+    h_atual = dt.now().strftime('%H:%M')
+    
+    contexto = {
+        'veiculo': veiculo,
+        'horas': h_atual,
+    }
+
+
+    return render(request, 'saida.html', contexto)
 # Fim da saída

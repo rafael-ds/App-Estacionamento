@@ -22,4 +22,5 @@ class Controle(models.Model):
 
     tipo = models.ForeignKey(Tipo, on_delete=DO_NOTHING)
 
-    
+    def __str__(self):
+        return (self.placa)
