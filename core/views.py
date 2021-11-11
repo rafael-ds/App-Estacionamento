@@ -98,15 +98,32 @@ def saida(request):
         #get_placa --> Vem da busca saida.html
         placa=get_placa,
     )
+    
+    if  not veiculo:
+        messages.info(request, 'Placa não encontrada.')
+        return render(request, 'saida.html')
 
-    # Inserindo a hora atual do sistema
-    h_atual = dt.now().strftime('%H:%M')
+    # Lógica de pagamento
+    get_saida = Controle.objects.get(placa=get_placa)
+    
+    # Capturando o horario de entrada
+    h_entrada = get_saida.entrada
+    h_atual = dt.now()
+
+    # Calculando a hora atual menos a hora de entrada para
+    # definir o valor do rotativo
+    total_horas = h_atual.hour - h_entrada.hour
+
+    valor = (total_horas * 4)
+
+    # Inserindo a hora atual no templates
+    mostra_horas = dt.now().strftime('%H:%M')
     
     contexto = {
         'veiculo': veiculo,
-        'horas': h_atual,
+        'horas': mostra_horas,
+        'valor': valor
     }
-
 
     return render(request, 'saida.html', contexto)
 # Fim da saída

@@ -27,39 +27,9 @@
         </div>
     </div>
 
-    <!--Tabela-->
-    <!--<div class="tabela mt-4">
-        <h2 class="p-3">Veículo</h2>
-        <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Placa</th>
-                <th scope="col">Modelo</th>
-                <th scope="col">Hora Entrada</th>
-                
-              </tr>
-            </thead>
-
-            {% for v in veiculo %}
-            <tbody>
-              <tr>
-                <td>{{v.placa}}</td>
-                <td>{{v.modelo}}</td>
-                <td>{{v.entrada|time}}</td>
-              </tr>                  
-            </tbody>
-            {% endfor %}
-        </table>
-        <hr>
-
-        
-
-        <button class="btn btn-primary mt-2 ml-4">Liberar</button>
-    </div>-->
-    <!--Fim Tabela-->
-
     <center>
       <div class="card">
+        {% bootstrap_messages %}
         <div class="card-header">
           {% for v in veiculo %}
           <span>Placa: {{v.placa}}</span>
@@ -80,15 +50,13 @@
             <tbody>
               <tr>
                 <td>{{v.entrada}}</td>
-                <td>{{v.tipo}}</td>
-                
+                <td>{{v.tipo}}</td>                
                 <td>{{horas}}</td>
-                <td>R$ Valor</td>
+                <td>R${{valor}}</td>
                 {% endfor %}
               </tr>
             </tbody>
           </table>
-          
           <a href="#" class="btn btn-primary">Liberar</a>
         </div>
       </div>
