@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages, auth
 from datetime import datetime as dt
 
@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 # Import para realização de login e logout
 from django.contrib.auth import logout
 
+# Models
 from .models import Controle, Tipo
 
 # Função index
@@ -49,8 +50,17 @@ def home(request):
 
     veiculos = Controle.objects.all()
 
+    get_placa = request.GET.get('buscarPlaca')
+
+    # Não ficou esteticamente bom
+    # Testa com um template proprio
+    buscar = Controle.objects.order_by('id').filter(
+        placa=get_placa,
+    )
+    
     contexto = {
-        'veiculo': veiculos
+        'veiculo': veiculos,
+        'buscar': buscar, # busca uma placa especifica
     }
 
     return render(request, 'home.html', contexto)
@@ -127,3 +137,20 @@ def saida(request):
 
     return render(request, 'saida.html', contexto)
 # Fim da saída
+
+# Função que remove o item de BD
+@login_required(redirect_field_name='index')
+def del_saida(request, id):
+    veiculo = get_object_or_404(Controle, pk=id)
+    
+    if veiculo:
+        messages.success(request, 'Veiculo Liberado.')
+        veiculo.delete()
+        return redirect('home')
+
+    return redirect('saida')
+
+
+"""def busca_veic(request, id):
+    busca = get_object_or_404(request, pk=id)
+    return render(request, 'home.html')"""

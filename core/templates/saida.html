@@ -30,35 +30,51 @@
     <center>
       <div class="card">
         {% bootstrap_messages %}
-        <div class="card-header">
-          {% for v in veiculo %}
-          <span>Placa: {{v.placa}}</span>
-          
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Modelo: {{v.modelo}}</h5>
-          
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Entrada</th>
-                <th scope="col">Tipo: rot | mes</th>
-                <th scope="col">Saida</th>
-                <th scope="col">Valor(R$)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{v.entrada}}</td>
-                <td>{{v.tipo}}</td>                
-                <td>{{horas}}</td>
-                <td>R${{valor}}</td>
-                {% endfor %}
-              </tr>
-            </tbody>
-          </table>
-          <a href="#" class="btn btn-primary">Liberar</a>
-        </div>
+        {% for v in veiculo %}
+          <div class="card-header">
+            
+            <span>Placa: {{v.placa}}</span>
+            
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Modelo: {{v.modelo}}</h5>
+            
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Entrada</th>
+                  <th scope="col">Tipo: rot | mes</th>
+                  <th scope="col">Saida</th>
+                  <th scope="col">Valor(R$)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <!--
+                      <td>horas</td> --- Não esta recuperando a hora do Banco.
+                      <td>R$valor</td> --- Esta com a lógica correta, porem como o horario
+                                      não esta sendo recuperado corretamente, logo o valor não 
+                                      sai corretamente.
+                  -->
+                  <td>{{v.entrada}}</td>
+                  <td>{{v.tipo}}</td>                
+                  <td>{{horas}}</td>
+                  <td>R${{valor}}</td>
+                  
+                </tr>
+              </tbody>
+            </table>
+
+            <!--Form necessario para o delete de um item 
+                OBS: O loop FOR é necessario ate o fim FORM.
+                     O ACTION levara a url da views e o ID referece a variavel do LOOP
+            -->
+            <form action="{% url 'del_saida' v.id %}" method="post">
+              {% csrf_token %} 
+              <button type="submit" class="btn btn-primary">Liberar</button>
+            </form>
+          </div>
+        {% endfor %}
       </div>
     </center>
 

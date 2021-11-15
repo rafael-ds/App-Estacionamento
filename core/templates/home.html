@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{%  load bootstrap4 %}
 {% load static %}
 
 {% block conteudo %}
@@ -11,6 +12,7 @@
         
         <div class="container">
           <h2 class="p-3">Controle</h2>
+          {% bootstrap_messages %}
             <!--BTNS-->
             <div class="row d-flex justify-content-center bnts p-3">
                 <!--BNT registro de entrada-->
