@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block conteudo %}
+
+<p></p>
+
+<section>
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Descrição</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Históricos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Observações</a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              
+              {% for p in buscar %}
+                <h5 class="card-title">Placa: {{p.placa}}</h5>
+              {% endfor %}
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Modelo</th>
+                      <th scope="col">Tipo: rot | mes</th>
+                      <th scope="col">Operador</th>
+                      <th scope="col">Ultimo Acesso</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  {% for b in buscar %}
+                  <tr>
+                    <td>{{b.modelo}}</td>
+                    <td>{{b.tipo}}</td>                
+                    <td>{{b.operador}}</td>
+                    <td>{{b.entrada}}</td>                    
+                  </tr>
+                  {% endfor %}
+
+                </tbody>
+              </table>
+
+              <a href="{% url 'home' %}" class="btn btn-primary">Voltar</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

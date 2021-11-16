@@ -1,6 +1,9 @@
+from django.core import paginator
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages, auth
 from datetime import datetime as dt
+
+from django.core.paginator import Paginator
 
 #Importe que tem como objetivo a necessidade de estar logado
 #para ter acesso a determinada pagina
@@ -50,21 +53,33 @@ def home(request):
 
     veiculos = Controle.objects.all()
 
-    get_placa = request.GET.get('buscarPlaca')
-
-    # Não ficou esteticamente bom
-    # Testa com um template proprio
-    buscar = Controle.objects.order_by('id').filter(
-        placa=get_placa,
-    )
+    # Inicio da paginação
+    paginator = Paginator(veiculos, 5) # objeto de paginação 
+    page = request.GET.get('p')
+    veiculos = paginator.get_page(page)
+    # Fim da paginação
     
     contexto = {
         'veiculo': veiculos,
-        'buscar': buscar, # busca uma placa especifica
     }
 
     return render(request, 'home.html', contexto)
 # Fim da Home
+
+@login_required(redirect_field_name='index')
+def buscar(request):
+
+    get_placa = request.GET.get('buscarPlaca')
+
+    buscar = Controle.objects.order_by('id').filter(
+        placa=get_placa
+    )
+
+    contexto = {
+        'buscar': buscar
+    }
+    
+    return render(request, 'buscar.html', contexto)
 
 
 # Entrada 
@@ -149,8 +164,3 @@ def del_saida(request, id):
         return redirect('home')
 
     return redirect('saida')
-
-
-"""def busca_veic(request, id):
-    busca = get_object_or_404(request, pk=id)
-    return render(request, 'home.html')"""
